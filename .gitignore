@@ -1,6 +1,16 @@
 ###### Folder #######
 /.DS_Store
-/
+/parent/target/*
+/parent/db/target/*
+/parent/nex/target/*
+/parent/servlet/target/*
+/parent/liquibase/target/*
+/parent/.idea/*
+/parent/db/.idea/*
+/parent/nex/.idea/*
+/parent/servlet/.idea/*
+/parent/liquibase/.idea/*
+
 
 
 ###############
