@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.ea.nex</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>liquibase</artifactId>
+
+    <!-- properties -->
+    <properties>
+        <liquibase.url>jdbc:mysql://localhost:3306/identity</liquibase.url>
+        <liquibase.driver>com.mysql.jdbc.Driver</liquibase.driver>
+        <liquibase.username>root</liquibase.username>
+        <liquibase.password>#Bugsfor$</liquibase.password>
+        <liquibase.changeLogFile>src/main/resources/liquibase/liquibase100.xml</liquibase.changeLogFile>
+    </properties>
+
+    <!-- build -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>properties-maven-plugin</artifactId>
+                    <version>1.0-alpha-2</version>
+                    <executions>
+                        <execution>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>read-project-properties</goal>
+                            </goals>
+                            <configuration>
+                                <files>
+                                    <file>src/main/resources/config/config.properties</file>
+                                </files>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>2.0.5</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.liquibase</groupId>
+                            <artifactId>liquibase-core</artifactId>
+                            <version>2.0.5</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <phase>process-resources</phase>
+                            <configuration>
+                                <changeLogFile>${liquibase.changeLogFile}</changeLogFile>
+                                <driver>${liquibase.driver}</driver>
+                                <url>${liquibase.url}</url>
+                                <username>${liquibase.username}</username>
+                                <password>${liquibase.password}</password>
+                            </configuration>
+                            <goals>
+                                <goal>update</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

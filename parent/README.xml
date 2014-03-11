@@ -1,0 +1,21 @@
+<log>
+    <versionGroup>
+        <version>100</version>
+        <description>
+            Build a framework for Nex, including apis:
+            1) get user info with device id
+            2) create user with device id
+            3) update user social account info with account id + account type
+            4) update account action history
+        </description>
+        <technology>
+            1) servlet + tomcat for web tier
+            2) nex module for service tier
+            3) mysql + ibatis for db tier
+            4) liquibase for db management
+            5) maven for project management
+            6) spring for some ioc issues
+        </technology>
+    </versionGroup>
+</log>
+
