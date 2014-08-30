@@ -32,6 +32,7 @@
 *.o
 *.plg
 *.keep
+*.iml
 
 ###############
 #  temp file  #
