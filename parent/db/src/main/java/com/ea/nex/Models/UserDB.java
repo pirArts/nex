@@ -15,7 +15,7 @@ public class UserDB implements Serializable{
     private static final long serialVersionUID = 4872640461000241018L;
 
     private Long id;
-    private String deviceId;
+    private String deviceId; // ip or device hashcode
     private String email;
     private String name;
     private String password;

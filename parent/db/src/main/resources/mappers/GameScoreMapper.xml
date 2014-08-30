@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ea.nex.Mappers.UserMapper">
+    <resultMap id="baseResultMap" type="com.ea.nex.Models.UserDB">
+        <id column="ID" property="id"/>
+        <result column="DEVICE_ID" property="deviceId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="USER_NAME" property="name"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="DATE_CREATED" property="dateCreated"/>
+        <result column="DATE_MODIFIED" property="dateModified"/>
+    </resultMap>
+
+    <sql id="table">
+        identity.GAMESCORE
+    </sql>
+
+    <sql id="object">
+        GAME_NAME,
+        USER_ID,
+        SCORE
+    </sql>
+
+    <sql id="object">
+        GAME_NAME,
+        USER_ID,
+        SCORE
+    </sql>
+
+    <sql id="values">
+        #{entity.gameName},
+        #{entity.score},
+        #{entity.userId}
+    </sql>
+
+    <insert id="save" parameterType="com.ea.nex.Models.UserDB" >
+        INSERT INTO <include refid="table"/>
+        (
+           <include refid="column"/>
+        )
+        VALUES
+        (
+          <include refid="values"/>
+        )
+    </insert>
+
+</mapper>
